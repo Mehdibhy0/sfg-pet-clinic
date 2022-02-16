@@ -17,7 +17,7 @@
 
 	<groupId>mehdi.springframework</groupId>
 	<artifactId>sfg-pet-clinic</artifactId>
-	<version>1.1</version>
+	<version>1.2-SNAPSHOT</version>
 	<name>sfg-pet-clinic</name>
 	<description>SFG Pet Clinic Project</description>
 
@@ -43,6 +43,6 @@
 		</plugins>
 	</build>
 
-	<scm><developerConnection>scm:git:https://github.com/Mehdibhy0/sfg-pet-clinic.git</developerConnection>  <tag>sfg-pet-clinic-1.1</tag>
+	<scm><developerConnection>scm:git:https://github.com/Mehdibhy0/sfg-pet-clinic.git</developerConnection>  <tag>HEAD</tag>
   </scm>
 </project>
