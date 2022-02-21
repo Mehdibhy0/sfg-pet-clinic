@@ -2,13 +2,12 @@ package mehdi.springframework.sfgpetclinic.bootstrap;
 
 import mehdi.springframework.sfgpetclinic.model.Owner;
 import mehdi.springframework.sfgpetclinic.model.Vet;
-import mehdi.springframework.sfgpetclinic.services.CrudService;
 import mehdi.springframework.sfgpetclinic.services.OwnerService;
 import mehdi.springframework.sfgpetclinic.services.VetService;
-import mehdi.springframework.sfgpetclinic.services.map.OwnerServiceMap;
-import mehdi.springframework.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.Set;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -17,10 +16,11 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
 
 
-    //adding bootstrap for data
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    //adding bootstrap for dat
+
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
@@ -34,13 +34,14 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner1.setId(2L);
-        owner1.setFirstName("Fiona");
-        owner1.setLastName("Glenanne");
+        owner2.setId(2L);
+        owner2.setFirstName("Fiona");
+        owner2.setLastName("Glenanne");
 
         ownerService.save(owner2);
 
-        System.out.println("Loaded Owners .............");
+        Set<Owner> checkowners= ownerService.findAll();
+        System.out.println("number of owners is : "+checkowners.stream().count());
 
         Vet vet1 =new Vet();
         vet1.setId(1L);
@@ -51,8 +52,8 @@ public class DataLoader implements CommandLineRunner {
 
         Vet vet2=new Vet();
         vet2.setId(2L);
-        vet2.setFirstName("Sam");
-        vet2.setLastName("Axe");
+        vet2.setFirstName("jason");
+        vet2.setLastName("derulo");
 
         vetService.save(vet2);
 
