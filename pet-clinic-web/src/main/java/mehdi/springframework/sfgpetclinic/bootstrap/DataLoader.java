@@ -7,6 +7,8 @@ import mehdi.springframework.sfgpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -32,13 +34,14 @@ public class DataLoader implements CommandLineRunner {
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner1.setId(2L);
-        owner1.setFirstName("Fiona");
-        owner1.setLastName("Glenanne");
+        owner2.setId(2L);
+        owner2.setFirstName("Fiona");
+        owner2.setLastName("Glenanne");
 
         ownerService.save(owner2);
 
-        System.out.println("Loaded Owners .............");
+        Set<Owner> checkowners= ownerService.findAll();
+        System.out.println("number of owners is : "+checkowners.stream().count());
 
         Vet vet1 =new Vet();
         vet1.setId(1L);
