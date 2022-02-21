@@ -2,11 +2,8 @@ package mehdi.springframework.sfgpetclinic.bootstrap;
 
 import mehdi.springframework.sfgpetclinic.model.Owner;
 import mehdi.springframework.sfgpetclinic.model.Vet;
-import mehdi.springframework.sfgpetclinic.services.CrudService;
 import mehdi.springframework.sfgpetclinic.services.OwnerService;
 import mehdi.springframework.sfgpetclinic.services.VetService;
-import mehdi.springframework.sfgpetclinic.services.map.OwnerServiceMap;
-import mehdi.springframework.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,10 +14,11 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
 
 
-    //adding bootstrap for data
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    //adding bootstrap for dat
+
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
