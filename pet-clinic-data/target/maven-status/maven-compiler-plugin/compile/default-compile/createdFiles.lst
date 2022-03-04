@@ -1,5 +1,14 @@
 mehdi\springframework\sfgpetclinic\model\PetType.class
 mehdi\springframework\sfgpetclinic\model\Vet.class
-mehdi\springframework\sfgpetclinic\model\Owner.class
 mehdi\springframework\sfgpetclinic\model\Pet.class
+mehdi\springframework\sfgpetclinic\services\CrudService.class
+mehdi\springframework\sfgpetclinic\model\BaseEntity.class
+mehdi\springframework\sfgpetclinic\services\map\OwnerServiceMap.class
+mehdi\springframework\sfgpetclinic\services\map\VetServiceMap.class
+mehdi\springframework\sfgpetclinic\model\Owner.class
+mehdi\springframework\sfgpetclinic\services\map\PetServiceMap.class
+mehdi\springframework\sfgpetclinic\services\PetService.class
+mehdi\springframework\sfgpetclinic\services\OwnerService.class
+mehdi\springframework\sfgpetclinic\services\VetService.class
+mehdi\springframework\sfgpetclinic\services\map\AbstractMapService.class
 mehdi\springframework\sfgpetclinic\model\Person.class
