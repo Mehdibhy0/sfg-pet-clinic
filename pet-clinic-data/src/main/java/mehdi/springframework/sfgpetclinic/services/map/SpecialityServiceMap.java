@@ -2,9 +2,11 @@ package mehdi.springframework.sfgpetclinic.services.map;
 
 import mehdi.springframework.sfgpetclinic.model.*;
 import mehdi.springframework.sfgpetclinic.services.*;
+import org.springframework.stereotype.*;
 
 import java.util.*;
 
+@Service
 public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
     @Override
     public Set<Speciality> findAll() {
@@ -23,6 +25,7 @@ public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> i
 
     @Override
     public Speciality save(Speciality object) {
+
         return super.save(object);
     }
 
