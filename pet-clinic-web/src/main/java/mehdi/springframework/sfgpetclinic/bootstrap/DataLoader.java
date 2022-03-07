@@ -5,6 +5,7 @@ import mehdi.springframework.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.*;
 import java.util.Set;
 
 @Component
@@ -37,14 +38,33 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
         owner1.setLastName("weston");
+        owner1.setAddress("123 Brickerel");
+        owner1.setCity("Miami");
+        owner1.setTelephone("123123123");
 
+        Pet mikesPet =new Pet();
+        mikesPet.setPetType(savedDogType);
+        mikesPet.setOwner(owner1);
+        mikesPet.setBirthDate(LocalDate.now());
+        mikesPet.setName("Rosco");
+        owner1.getPets().add(mikesPet);
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenanne");
+        owner2.setAddress("123 Brickerel");
+        owner2.setCity("Miami");
+        owner2.setTelephone("123123123");
 
+        Pet FionasPet =new Pet();
+        FionasPet.setPetType(savedCatType);
+        FionasPet.setOwner(owner2);
+        FionasPet.setBirthDate(LocalDate.now());
+        FionasPet.setName("Cat");
+        owner2.getPets().add(FionasPet);
         ownerService.save(owner2);
+
 
         Set<Owner> checkowners= ownerService.findAll();
         System.out.println("number of owners is : "+checkowners.stream().count());
