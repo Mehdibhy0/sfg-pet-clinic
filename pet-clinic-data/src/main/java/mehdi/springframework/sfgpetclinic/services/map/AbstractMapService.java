@@ -2,7 +2,12 @@ package mehdi.springframework.sfgpetclinic.services.map;
 
 import mehdi.springframework.sfgpetclinic.model.BaseEntity;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
 //test git
 
 public abstract class AbstractMapService<T extends BaseEntity,ID extends Long> {
