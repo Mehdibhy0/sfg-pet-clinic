@@ -1,11 +1,20 @@
 package mehdi.springframework.sfgpetclinic.bootstrap;
 
-import mehdi.springframework.sfgpetclinic.model.*;
-import mehdi.springframework.sfgpetclinic.services.*;
+import mehdi.springframework.sfgpetclinic.model.Owner;
+import mehdi.springframework.sfgpetclinic.model.Pet;
+import mehdi.springframework.sfgpetclinic.model.PetType;
+import mehdi.springframework.sfgpetclinic.model.Speciality;
+import mehdi.springframework.sfgpetclinic.model.Vet;
+import mehdi.springframework.sfgpetclinic.model.Visit;
+import mehdi.springframework.sfgpetclinic.services.OwnerService;
+import mehdi.springframework.sfgpetclinic.services.PetTypeService;
+import mehdi.springframework.sfgpetclinic.services.SpecialityService;
+import mehdi.springframework.sfgpetclinic.services.VetService;
+import mehdi.springframework.sfgpetclinic.services.VisitService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.time.*;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Component
@@ -15,15 +24,17 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialitiesService;
+    private final VisitService visitService;
 
 
     //adding bootstrap for dat
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialitiesService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialitiesService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialitiesService = specialitiesService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -88,6 +99,12 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(FionasPet);
         ownerService.save(owner2);
 
+        Visit catVisit =  new Visit();
+        catVisit.setPet(FionasPet);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy cat");
+
+        visitService.save(catVisit);
 
         Set<Owner> checkowners= ownerService.findAll();
         System.out.println("number of owners is : "+checkowners.stream().count());
