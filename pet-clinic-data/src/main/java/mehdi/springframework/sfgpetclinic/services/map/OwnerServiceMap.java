@@ -1,7 +1,10 @@
 package mehdi.springframework.sfgpetclinic.services.map;
 
-import mehdi.springframework.sfgpetclinic.model.*;
-import mehdi.springframework.sfgpetclinic.services.*;
+import mehdi.springframework.sfgpetclinic.model.Owner;
+import mehdi.springframework.sfgpetclinic.model.Pet;
+import mehdi.springframework.sfgpetclinic.services.OwnerService;
+import mehdi.springframework.sfgpetclinic.services.PetService;
+import mehdi.springframework.sfgpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
